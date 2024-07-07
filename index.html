@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It's Locked madam</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        .input-field {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1em;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            width: 200px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        #popup button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>7 th digit in my phonenumber(Array)</h1>
+    <div class="input-field">
+        <input type="text" id="codeInput1" placeholder="Enter code">
+    </div>
+    <h1>Number after "Love you"(STARK)</h1>
+    <div class="input-field">
+        <input type="text" id="codeInput2" placeholder="Enter code">
+    </div>
+    <h1>What day of the week was I born on?(all lowercase)</h1>
+    <div class="input-field">
+        <input type="text" id="codeInput3" placeholder="Enter code">
+    </div>
+    <h1>name of scientist's book i referred you to read..?(lowercase,nospace)</h1>
+    <div class="input-field">
+        <input type="text" id="codeInput4" placeholder="Enter code">
+    </div>
+    <button onclick="checkCodes()">Submit</button>
+
+    <div id="popup">
+        <h2>You got this!</h2>
+        <p>ADD earphones</p>
+        <button onclick="redirect()">Proceed</button>
+    </div>
+
+    <script>
+        function checkCodes() {
+            let score = 0;
+            const code1 = document.getElementById('codeInput1').value;
+            const code2 = document.getElementById('codeInput2').value;
+            const code3 = document.getElementById('codeInput3').value;
+            const code4 = document.getElementById('codeInput4').value;
+
+            if (code1 === "5") score++;
+            if (code2 === "3000") score++;
+            if (code3 === "monday") score++;
+            if (code4 === "nikolatesla") score++;
+
+            if (score === 4) {
+                document.getElementById('popup').style.display = 'block';
+            } else {
+                alert(`You got ${score} out of 4 correct. Try again!`);
+            }
+        }
+
+        function redirect() {
+            window.location.href = "htht.html";
+        }
+    </script>
+</body>
+</html>

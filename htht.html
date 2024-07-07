@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eeeee</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('1.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        .content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            width: 80%;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+        .text-snippet, .image-snippet {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+            text-align: center;
+        }
+        .visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .hidden {
+            transform: scale(0.8);
+        }
+        .slideshow-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .mySlides {
+            display: none;
+            flex-shrink: 0; 
+            margin: 0 10px; 
+        }
+        .mySlides img {
+            width: 100%;
+            height: 300px;
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        .title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        #title-image {
+            width: 30px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        @media (max-width: 768px) {
+            .content {
+                width: 90%;
+            }
+            .mySlides img {
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="content">
+            <div class="title">
+                
+            </div>
+            <div id="snippet1" class="text-snippet hidden">❤️ MY EARTH ❤️</div>
+            <div id="snippet2" class="text-snippet hidden">🏡 She don't need a place in big houses but she needs a place in your heart 🏡</div>
+            <div id="snippet3" class="text-snippet hidden">🚗 She doesn't want to travel in luxury cars but she travels her life journey along with you 🚗</div>
+            <div id="snippet4" class="text-snippet hidden">🍲 She doesn't need expensive food rather than your prepared food 🍲</div>
+            <div id="snippet5" class="text-snippet hidden">💖 These are the 0.00000007% of reasons 💖</div>
+        </div>
+        <div class="slideshow-container">
+            <div class="mySlides"><img src="11.jpg" alt="Her Image 2"></div>
+            <div class="mySlides"><img src="12.jpg" alt="Her Image 3"></div>
+            <div class="mySlides"><img src="13.jpg" alt="Her Image 4"></div>
+            <div class="mySlides"><img src="14.jpg" alt="Her Image 5"></div>
+            <div class="mySlides"><img src="15.jpg" alt="Her Image 6"></div>
+            <div class="mySlides"><img src="16.jpg" alt="Her Image 7"></div>
+        </div>
+    </div>
+
+    <audio id="background-music" src="C:\Users\Ritendra kumar\Downloads\Enna Sona Ok Jaanu 320 Kbps.mp3" loop></audio>
+
+    <script>
+        let currentSnippet = 0;
+        const snippets = document.querySelectorAll('.text-snippet');
+        const slides = document.querySelectorAll('.mySlides');
+
+        function showNextSnippet() {
+            if (currentSnippet < snippets.length) {
+                snippets[currentSnippet].classList.add('visible');
+                snippets[currentSnippet].classList.remove('hidden');
+                currentSnippet++;
+                setTimeout(showNextSnippet, 3000);
+            }
+        }
+
+        function showSlides(index) {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = 'none';
+            }
+            slides[index].style.display = 'block';
+        }
+
+        window.onload = () => {
+            setTimeout(showNextSnippet, 1000);
+            let slideIndex = 0;
+            showSlides(slideIndex);
+
+            setInterval(() => {
+                slideIndex++;
+                if (slideIndex >= slides.length) {
+                    slideIndex = 0;
+                }
+                showSlides(slideIndex);
+            }, 3000);
+
+            const music = document.getElementById('background-music');
+            music.play().catch(error => {
+                console.error('Music playback failed:', error);
+            });
+        };
+    </script>
+</body>
+</html>
